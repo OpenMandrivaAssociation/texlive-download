@@ -6,7 +6,7 @@
 # catalog-version 1.1
 Name:		texlive-download
 Version:	1.1
-Release:	4
+Release:	5
 Summary:	Allow LaTeX to download files using an external process
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/download

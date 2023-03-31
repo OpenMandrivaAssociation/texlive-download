@@ -1,6 +1,6 @@
 Name:		texlive-download
 Version:	52257
-Release:	1
+Release:	2
 Summary:	Allow LaTeX to download files using an external process
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/download

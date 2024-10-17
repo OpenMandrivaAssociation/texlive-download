@@ -3,7 +3,7 @@ Version:	52257
 Release:	2
 Summary:	Allow LaTeX to download files using an external process
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/download
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/download
 License:	LPPL1.3
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/download.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/download.doc.r%{version}.tar.xz

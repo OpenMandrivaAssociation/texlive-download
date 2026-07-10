@@ -1,49 +1,27 @@
-Name:		texlive-download
-Version:	52257
-Release:	2
+%global tl_name download
+%global tl_revision 79121
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	1.2
+Release:	%{tl_revision}.1
 Summary:	Allow LaTeX to download files using an external process
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/download
-License:	LPPL1.3
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/download.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/download.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/download.source.r%{version}.tar.xz
+License:	lppl1.3
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/download.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/download.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/download.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-The package allows the user to download files (using cURL or
-wget), from within a document. To run the external commands,
-LaTeX (or whatever) needs to be run with the --shell-escape
-flag; this creates a tension between your needs and the
-security implications of the flag; users should exercise due
-caution.
+The package allows the user to download files (using cURL or wget), from
+within a document. To run the external commands, LaTeX (or whatever)
+needs to be run with the --shell-escape flag; this creates a tension
+between your needs and the security implications of the flag; users
+should exercise due caution.
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/tex/latex/download/download.sty
-%doc %{_texmfdistdir}/doc/latex/download/README
-%doc %{_texmfdistdir}/doc/latex/download/download.pdf
-#- source
-%doc %{_texmfdistdir}/source/latex/download/download.tex
-
-#-----------------------------------------------------------------------
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar tex doc source %{buildroot}%{_texmfdistdir}

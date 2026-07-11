@@ -14,8 +14,6 @@ Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/download.doc.r%{
 Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/download.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
 BuildSystem:	texlive
-BuildRequires:	texlive-tlpkg
-%texlive_base_requires
 Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
